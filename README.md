@@ -1,5 +1,9 @@
 # p2p-editing: Child face generation form two parents' images based on pixel2style2pixel (pSp, a StyleGAN encoder)
 
+## 概要
+pixel2style2pixel encoderを使い、親の顔写真から、親の顔のlatent vectorsを出して結合する。  
+そして、結合されたlatent vectorから、子供の顔写真を生成できる。
+
 ## Motivation
 In order to know the appearance of the child, I thought of extracting the characteristics of their parents' appearance, combining them( in some way), and then obtaining the characteristics of their child, which could be used for generating the image of their child.
 
