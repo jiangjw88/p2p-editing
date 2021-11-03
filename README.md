@@ -13,7 +13,7 @@ pixel2style2pixel（略pSp） encoderを使い、親の顔写真から、親の�
 
 <img src="https://github.com/jiangjw88/p2p-editing/blob/master/images/parents.png" width="400" height="200" alt=""/>  
 
-最後、上記の２つの顔写真から得たlatent vectorsを結合して（ここでは算数平均を取る）[latent_editor.py](https://github.com/jiangjw88/p2p-editing/blob/master/editings/latent_editor.py)とmodelsの[psp.py](https://github.com/jiangjw88/p2p-editing/blob/master/models/psp.py)に通し、入力顔写真の2人の子供の顔写真を得る（下記左写真）。また、下記右写真は年齢を調整しないまま、得たものである。  
+最後、上記の２つの顔写真から得たlatent vectorsを結合して（ここでは算数平均を取る）editingsの[latent_editor.py](https://github.com/jiangjw88/p2p-editing/blob/master/editings/latent_editor.py)とmodelsの[psp.py](https://github.com/jiangjw88/p2p-editing/blob/master/models/psp.py)に通し、入力顔写真の2人の子供の顔写真を得る（下記左写真）。また、下記右写真は年齢を調整しないまま、得たものである。  
 
 <img src="https://github.com/jiangjw88/p2p-editing/blob/master/images/HG%26LSS_Child.png" width="400" height="200" alt=""/>  
 
