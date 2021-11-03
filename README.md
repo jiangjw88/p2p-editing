@@ -4,6 +4,7 @@
 pixel2style2pixel（略pSp） encoderを使い、親の顔写真から、親の顔のlatent vectorsを出して結合する。  
 そして、結合されたlatent vectorから、子供の顔写真を生成できる。  
 
+Notebook [p2p_editing.ipynb](https://github.com/jiangjw88/p2p-editing/blob/master/p2p_editing.ipynb)で子供の顔写真を生成する流れを確認できる。  
 例として、下記の２つの顔写真をpSp encoderに入力する。　　
 
 <img src="https://github.com/jiangjw88/p2p-editing/blob/master/images/HG_ali.png" width="200" height="200" alt=""/><img src="https://github.com/jiangjw88/p2p-editing/blob/master/images/LSS_ali.png" width="200" height="200" alt=""/>　　
@@ -17,18 +18,22 @@ pixel2style2pixel（略pSp） encoderを使い、親の顔写真から、親の�
 
 <img src="https://github.com/jiangjw88/p2p-editing/blob/master/images/HG%26LSS_Child.png" width="400" height="200" alt=""/>  
 
-
+# その他の詳細は下記になります。Please see below for more details.
 ## Motivation
 In order to know the appearance of the child, I thought of extracting the characteristics of their parents' appearance, combining them( in some way), and then obtaining the characteristics of their child, which could be used for generating the image of their child.
 
 ## Pretained model 
-At first, I used the pretrained pSp model, including the encoder and decoder weights.
-The model was trained with the FFHQ dataset by eladrich, and we can download it from path [StyleGAN Inversion](https://drive.google.com/file/d/1bMTNWkh5LArlaWSc_wa8VKyq2V42T2z0/view?usp=sharing).
+I used the pretrained pSp model, including the encoder and decoder weights.
+The model was trained with the FFHQ dataset by [eladrich](https://github.com/eladrich/pixel2style2pixel) using pSp framework, and we can download it from path [StyleGAN Inversion](https://drive.google.com/file/d/1bMTNWkh5LArlaWSc_wa8VKyq2V42T2z0/view?usp=sharing).
 
-## Create child face image
+## Step to create child face image
 Step 1: Extract the latent spaces from two parents' face image by using pretrained pSp encoder.  
 Step 2: Simply taking the average of the parents’ latent spaces, moving negatively in the ‘age direction’, and moving randomly in the ‘gender direction’.  
-Step 3: Generate child face image from the average latent space by using pretrained pSp decoder.
+Step 3: Generate child face image from the average latent space by using pretrained pSp decoder.  
+
+## Acknowledgments
+The code in folder "models", "scripts" and "utils", borrows heavily from [pixel2style2pixel](https://github.com/eladrich/pixel2style2pixel).  
+The code in folder "editings" borrows heavily from [encoder4editing](https://github.com/omertov/encoder4editing).  
 
 ## Credits
 **StyleGAN2 model and implementation:**  
@@ -45,15 +50,6 @@ License (MIT) https://github.com/eladrich/pixel2style2pixel/blob/master/LICENSE
 https://github.com/omertov/encoder4editing
 Copyright (c) 2021 omertov  
 License (MIT) https://github.com/omertov/encoder4editing/blob/main/LICENSE
-
-**The Asian Face Age Dataset (AFAD):**    
-https://github.com/afad-dataset/tarball-lite
-
-**Please Note**: The CUDA files under the [StyleGAN2 ops directory](https://github.com/eladrich/pixel2style2pixel/tree/master/models/stylegan2/op) are made available under the [Nvidia Source Code License-NC](https://nvlabs.github.io/stylegan2/license.html)
-
-## Acknowledgments
-This code borrows heavily from [pixel2style2pixel](https://github.com/eladrich/pixel2style2pixel),
-[encoder4editing](https://github.com/omertov/encoder4editing).
 
 ## Citation
 If you use this code for your research, please cite the following works:
